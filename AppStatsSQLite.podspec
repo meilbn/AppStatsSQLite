@@ -18,6 +18,6 @@ Pod::Spec.new do |spec|
   spec.source_files  = "AppStatsSQLite/*.swift"
   spec.dependency "Moya", "~> 15.0"
   spec.dependency "Alamofire", "~> 5.0"
-  spec.dependency "RealmSwift", "~> 10.0"
+  spec.dependency "SwiftyJSON", "~> 5.0"
   spec.dependency "SQLite.swift", "~> 0.14"
 end
