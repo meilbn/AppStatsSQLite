@@ -6,7 +6,7 @@
 //
 
 import SQLite
-import CoreLocation
+//import CoreLocation
 
 // MARK: Enums
 

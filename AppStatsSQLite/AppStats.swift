@@ -139,8 +139,8 @@ public final class AppStats {
     }
     
     /// 判断是否需要上传数据
-    private func checkUploadAppCollects() {
-        guard let app = _appUUID, !app.appKey.isEmpty && app.appId > 0 && app.appUserId > 0 else { 
+    private func checkUploadAppCollects(ignoreLatestUploadedTime: Bool = false) {
+        guard let app = _appUUID, !app.appKey.isEmpty && app.appId > 0 && app.appUserId > 0 else {
             return
         }
         
@@ -153,7 +153,7 @@ public final class AppStats {
             return
         }
         
-        if latestUploadedTime > 0 && Date().timeIntervalSince1970 - latestUploadedTime < (30.0 * 60.0) {
+        if !ignoreLatestUploadedTime && latestUploadedTime > 0 && Date().timeIntervalSince1970 - latestUploadedTime < (30.0 * 60.0) {
             AppStats.debugLog("距离上次提交不到半小时，先不提交...")
             return
         }
@@ -235,7 +235,7 @@ public final class AppStats {
     
     public func addAppEvent(_ event: String, attrs: [String : Codable]?) {
         AppStatsSQLite.shared.addAppEvent(event, attrs: attrs)
-        checkUploadAppCollects()
+        checkUploadAppCollects(ignoreLatestUploadedTime: true)
     }
     
 }
