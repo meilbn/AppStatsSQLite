@@ -116,40 +116,40 @@ class AppStatsSQLite {
     
     // MARK: Tables
     
-    let c_id = Expression<Int64>("id")
-    let c_appKey = Expression<String>("appKey")
-    let c_appId = Expression<Int>("appId")
+    let c_id = SQLite.Expression<Int64>("id")
+    let c_appKey = SQLite.Expression<String>("appKey")
+    let c_appId = SQLite.Expression<Int>("appId")
     
     // AppStatsUUID
     
-    let t_AppStatsUUIDs = Table("AppStatsUUID")
-    let c_appUserId = Expression<Int>("appUserId")
-    let c_uuid = Expression<String>("uuid")
-    let c_systemVersion = Expression<String>("systemVersion")
-    let c_deviceModel = Expression<String>("deviceModel")
-    let c_appVersion = Expression<String>("appVersion")
-    let c_appBuild = Expression<String>("appBuild")
-    let c_region = Expression<String>("region")
-    let c_location = Expression<String?>("location")
-    let c_address = Expression<String?>("address")
-    let c_lat = Expression<String?>("lat")
-    let c_lng = Expression<String?>("lng")
+    let t_AppStatsUUIDs = SQLite.Table("AppStatsUUID")
+    let c_appUserId = SQLite.Expression<Int>("appUserId")
+    let c_uuid = SQLite.Expression<String>("uuid")
+    let c_systemVersion = SQLite.Expression<String>("systemVersion")
+    let c_deviceModel = SQLite.Expression<String>("deviceModel")
+    let c_appVersion = SQLite.Expression<String>("appVersion")
+    let c_appBuild = SQLite.Expression<String>("appBuild")
+    let c_region = SQLite.Expression<String>("region")
+    let c_location = SQLite.Expression<String?>("location")
+    let c_address = SQLite.Expression<String?>("address")
+    let c_lat = SQLite.Expression<String?>("lat")
+    let c_lng = SQLite.Expression<String?>("lng")
     
     // AppStat
     
-    let t_AppStats = Table("AppStats")
-    let c_type = Expression<Int>("type") // AppStatType
-    let c_count = Expression<Int>("count")
-    let c_date = Expression<String>("date")
+    let t_AppStats = SQLite.Table("AppStats")
+    let c_type = SQLite.Expression<Int>("type") // AppStatType
+    let c_count = SQLite.Expression<Int>("count")
+    let c_date = SQLite.Expression<String>("date")
     
-    let c_isUploaded = Expression<Bool>("isUploaded")
+    let c_isUploaded = SQLite.Expression<Bool>("isUploaded")
     
     // AppEvent
     
-    let t_AppEvent = Table("AppEvent")
-    let c_event = Expression<String>("event")
-    let c_attrs = Expression<String?>("attrs")
-    let c_time = Expression<Date>("time")
+    let t_AppEvent = SQLite.Table("AppEvent")
+    let c_event = SQLite.Expression<String>("event")
+    let c_attrs = SQLite.Expression<String?>("attrs")
+    let c_time = SQLite.Expression<Date>("time")
     
     // MARK: Private Methods
     
