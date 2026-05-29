@@ -29,6 +29,7 @@ public final class AppStats {
     }
     
     var endpoint = ""
+    var signSalt = "Meilbn_AppStats_"
     
 //    public var isLocationEnable = false
 //    internal var currentLocationCoordinate: CLLocationCoordinate2D?
@@ -63,7 +64,7 @@ public final class AppStats {
     // MARK: Register App Key
     
     /// 注册 App key
-    public func register(withAppKey appkey: String, endpoint: String) {
+    public func register(withAppKey appkey: String, endpoint: String, signSalt: String? = nil) {
         assert(appkey.count > 0, "App key can not be empty!")
         AppStats.debugLog("register app key")
         
@@ -74,6 +75,9 @@ public final class AppStats {
         
         _appUUID = uuid
         self.endpoint = endpoint
+        if let salt = signSalt, !salt.isEmpty {
+            self.signSalt = salt
+        }
         checkAppId()
     }
     

@@ -43,7 +43,7 @@ public struct AppStatsAPISign {
     public static func generateCurrentTimestampSign() -> (sign: String, ts: String) {
         let ts = String(format: "%.0lf", Date().timeIntervalSince1970)
         let rts = String(ts.reversed())
-        let ori = "Meilbn_AppStats_" + rts
+        let ori = AppStats.shared.signSalt + rts // "Meilbn_AppStats_" + rts
         return (ori.app_stats_sha256(), ts)
     }
     
